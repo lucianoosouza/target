@@ -1,35 +1,61 @@
-// 1. Importamos o 'StyleSheet' do núcleo do React Native.
-// Ele é uma ferramenta que valida seus estilos e melhora a performance do app.
-import { StyleSheet } from "react-native";
+import { StyleSheet } from "react-native"
 
-/**
- * Criamos e exportamos o objeto 'styles'.
- * O método .create() garante que o código seja processado de forma eficiente pelo dispositivo.
- */
 export const styles = StyleSheet.create({
-  
-  // Estilo para o container principal (o "pai" de todos os elementos na tela)
   container: {
-    // flex: 1 faz com que a View ocupe TODO o espaço disponível na tela do celular.
     flex: 1,
-    
-    // alignItems: 'center' alinha os elementos horizontalmente (no centro da largura).
     alignItems: 'center',
-    
-    // justifyContent: 'center' alinha os elementos verticalmente (no centro da altura).
-    // Com flex: 1 e esses dois comandos, o conteúdo fica "perfeitamente centralizado".
-    justifyContent: 'center',
+    backgroundColor: '#d0d2d8',
+    paddingTop: 62,
   },
-
-  // Estilo específico para o componente de texto
-  text: {
-    // Define o tamanho da fonte. Diferente da web, não usamos 'px', apenas o número.
-    fontSize: 32,
-    
-    // Define o peso (espessura) da fonte. 700 equivale ao 'bold' (negrito).
-    fontWeight: '700',
-    
-    // Define a cor do texto. Pode ser o nome da cor, hexadecimal ou RGB.
-    color: 'red',
+  logo: {
+    height: 34,
+    width: 134,
+  },
+  form: {
+    width: '100%',
+    paddingHorizontal: 16,
+    gap: 7,
+    marginTop: 42,
+  },
+  content: {
+    flex: 1,
+    width: '100%',
+    backgroundColor: '#FFFFFF',
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    padding: 24,
+    paddingTop: 32,
+    marginTop: 24,
+  },
+  header: {
+    width: '100%',
+    flexDirection: 'row',
+    gap: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E4E6EC',
+    paddingBottom: 12,
+  },
+  clearButton: {
+    marginLeft: 'auto',
+  },
+  clearText: {
+    fontSize: 12,
+    color: '#828282',
+    fontWeight: 600,
+  },
+  separator: {
+    width: "100%",
+    height: 1,
+    backgroundColor: "#EEF0F5",
+    marginVertical: 16,
+  },
+  listContent: {
+    paddingTop: 24,
+    paddingBottom: 62,
+  },
+  empty: {
+    fontSize: 14,
+    color: "#808080",
+    textAlign: 'center'
   },
 });
