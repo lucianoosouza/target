@@ -1,8 +1,20 @@
 {
+  // 1. Herança de Configuração
+  // Estamos estendendo as configurações padrão do Expo. 
+  // Isso garante que o TypeScript entenda o ambiente do React Native sem termos que configurar tudo do zero.
   "extends": "expo/tsconfig.base",
+
   "compilerOptions": {
+    // 2. Modo Estrito (Strict Mode)
+    // "strict": true ativa uma série de verificações de erro mais rigorosas. 
+    // Isso obriga o aluno a tipar corretamente as variáveis, evitando bugs silenciosos.
     "strict": true,
+
+    // 3. Mapeamento de Caminhos (Path Aliases)
+    // Esta é a configuração que permite usarmos o "@/" nos nossos imports.
     "paths": {
+      // Aqui dizemos: "Sempre que você vir '@/', procure dentro da pasta './src/'".
+      // Isso evita caminhos confusos como "../../../components/Button".
       "@/*": ["./src/*"]
     }
   }
