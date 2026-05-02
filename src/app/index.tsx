@@ -5,17 +5,22 @@ import { Target } from "@/components/Target";
 import { List } from "@/components/List";
 import { Button } from "@/components/Button";
 import { router } from "expo-router";
-const summary = {
+import { targets, type TargetItem } from "../utils/targets";
+const summary =
+{
   total: 'R$ 8.467,89',
-  input: {
+  input:
+  {
     label: 'Entradas',
     value: 'R$ 15.542,67',
-    icon: {
+    icon:
+    {
       name: 'arrow-upward',
       color: colors.green[500],
     },
   },
-  output: {
+  output:
+  {
     label: 'Saídas',
     value: 'R$ 7.074,78',
     isLeft: true,
@@ -24,53 +29,33 @@ const summary = {
       color: colors.red[400],
     },
   },
-};
-
-const targets = [
-  {
-    id: '1',
-    name: 'Apple Watch',
-    percentage: '50%',
-    current: 'R$ 580,00',
-    target: 'R$ 1.700,00',
-  },
-  {
-    id: '2',
-    name: 'Comprar uma cadeira ergonômica',
-    percentage: '75%',
-    current: 'R$ 900,00',
-    target: 'R$ 1.200,00',
-  },
-  {
-    id: '3',
-    name: 'Viagem',
-    percentage: '75%',
-    current: 'R$ 1.200,00',
-    target: 'R$ 3.000,00',
-  },
-]
+} as const;
 
 export default function Home() {
   return (
 
-    <View style={{ flex: 1 }}>
-      <StatusBar barStyle="light-content" />
-      <HomeHeader data={summary} />
+    <View
+      style={{ flex: 1 }}>
+      <StatusBar
+        barStyle="light-content" />
+      <HomeHeader
+        data={summary} />
 
       <List
         title="Metas"
         data={targets}
         emptyMessage="Nenhuma meta. Toque em nova meta para criar."
         containerStyle={{ paddingHorizontal: 24 }}
-        keyExtractor={(item) => item.id!}
-        renderItem={({ item }) =>
+        keyExtractor={(item: TargetItem) => item.id}
+        renderItem={({ item }: { item: TargetItem }) =>
           <Target
             data={item}
             onPress={() => router.navigate(`/in-progress/${item.id}`)}
           />}
       />
 
-      <View style={{ padding: 24, paddingBottom: 32 }} />
+      <View
+        style={{ padding: 24, paddingBottom: 32 }} />
 
       <Button
         title="Nova Meta"

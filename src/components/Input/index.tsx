@@ -1,18 +1,14 @@
-import {
-    Text,
-    TextInput,
-    TextInputProps,
-    View,
-} from 'react-native'
+import { Text, TextInput, TextInputProps, View } from 'react-native';
+
 import { colors } from '@/theme'
 import { styles } from './styles'
-
 
 type Props = TextInputProps & {
     label: string
 }
 
-export function Input({ label, ...rest }: Props) {
+
+export default function Input({ label, ...rest }: Props) {
     return (
         <View style={styles.container}>
             <Text style={styles.label}>{label}</Text>

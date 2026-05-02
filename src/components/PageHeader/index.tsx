@@ -4,6 +4,7 @@ import { router } from 'expo-router'
 import React from 'react'
 import { colors } from '@/theme'
 import { styles } from './styles'
+
 type Props = {
     title: string
     subtitle?: string
