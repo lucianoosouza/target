@@ -5,14 +5,15 @@ import React from 'react'
 import { colors } from '@/theme'
 import { styles } from './styles'
 
-type Props = {
-    title: string
-    subtitle?: string
-    rightButton?: {
-        icon: keyof typeof MaterialIcons.glyphMap
-        onPress: () => void
+type Props =
+    {
+        title: string
+        subtitle?: string
+        rightButton?: {
+            icon: keyof typeof MaterialIcons.glyphMap
+            onPress: () => void
+        }
     }
-}
 
 export function PageHeader({ title, subtitle, rightButton }: Props) {
     return (

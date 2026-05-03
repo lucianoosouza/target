@@ -3,20 +3,24 @@ import { colors, fontFamily } from "@/theme";
 
 export const styles = StyleSheet.create(
     {
-        container: {
+        container:
+        {
             gap: 5,
         },
-        header: {
+        header:
+        {
             flexDirection: 'row',
             alignItems: 'center',
             gap: 5,
         },
-        label: {
+        label:
+        {
             fontFamily: fontFamily.regular,
-            fontSize: 10,
-            color: colors.blue[300],
+            fontSize: 12,
+            color: colors.white,
         },
-        value: {
+        value:
+        {
             fontFamily: fontFamily.regular,
             fontSize: 18,
             color: colors.white,

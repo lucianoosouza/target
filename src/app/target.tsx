@@ -10,14 +10,27 @@ import { styles } from '@/components/Input/styles';
 
 
 export default function Target() {
-    // Estado controlado do valor monetário
+
     const [value, setValue] = useState<number | null>(0);
+
+    const handleSave = () => {
+        router.back();
+    };
+
+    const handleDelete = () => {
+        o
+        router.back();
+    };
 
     return (
         <View style={{ flex: 1, padding: 24 }}>
             <PageHeader
                 title="Meta"
                 subtitle="Crie e gerencie suas metas financeiras"
+                rightButton={{
+                    icon: 'delete',
+                    onPress: handleDelete,
+                }}
             />
 
             <View style={{ marginTop: 32, gap: 24 }}>
@@ -33,16 +46,15 @@ export default function Target() {
                         placeholderTextColor={colors.gray[400]}
                         value={value}
                         onChangeValue={setValue}
-                        prefix="R$ "
                         delimiter="."
                         separator=","
                         precision={2}
                         minValue={0}
                     />
                 </View>
-
                 <Button
                     title="Salvar"
+                    onPress={handleSave}
                 />
             </View>
         </View>

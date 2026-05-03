@@ -1,41 +1,47 @@
 import { StyleSheet } from 'react-native'
-
 import { colors, fontFamily } from '@/theme'
 
 export const styles = StyleSheet.create(
     {
-        container: {
+        container:
+        {
             width: '100%',
             flex: 1,
         },
-        label: {
+        label:
+        {
             fontSize: 12,
             fontFamily: fontFamily.medium,
             color: colors.gray[500],
             marginBottom: 8,
         },
-        status: {
+        status:
+        {
             width: '100%',
             flexDirection: 'row',
             alignItems: 'center',
         },
-        value: {
+        value:
+        {
             fontSize: 18,
             fontFamily: fontFamily.medium,
             color: colors.black,
             flex: 1,
         },
-        target: {
+        target:
+        {
             fontSize: 20,
             fontFamily: fontFamily.medium,
             color: colors.gray[500],
         },
-        percentage: {
+        percentage:
+        {
             fontSize: 24,
             fontFamily: fontFamily.bold,
             color: colors.blue[500],
         },
-        progress: {
+        progress:
+        {
             marginTop: 10,
             width: '100%',
             height: 5,
@@ -43,7 +49,8 @@ export const styles = StyleSheet.create(
             backgroundColor: colors.gray[300],
             overflow: 'hidden',
         },
-        currentProgress: {
+        currentProgress:
+        {
             height: 5,
             backgroundColor: colors.blue[500],
         },

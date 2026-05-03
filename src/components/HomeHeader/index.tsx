@@ -7,15 +7,17 @@ import { Summary } from "@/components/Summary";
 import { SummaryProps } from "@/components/Summary";
 
 
-export type HomeHeaderProps = {
-    total: string,
-    input: SummaryProps,
-    output: SummaryProps,
-}
+export type HomeHeaderProps =
+    {
+        total: string,
+        input: SummaryProps,
+        output: SummaryProps,
+    }
 
-type Props = {
-    data: HomeHeaderProps
-}
+type Props =
+    {
+        data: HomeHeaderProps
+    }
 export function HomeHeader({ data }: Props) {
     return (
         <LinearGradient

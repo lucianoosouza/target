@@ -2,7 +2,6 @@ import { View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import { PageHeader } from '@/components/PageHeader';
 import { Progress } from '@/components/Progress';
-import { Button } from '@/components/Button';
 import { targets } from '@/utils/targets';
 
 export default function InProgress() {
@@ -22,19 +21,14 @@ export default function InProgress() {
                     title={targetItem?.name ?? 'Meta'}
                     rightButton={{
                         icon: 'edit',
-                        onPress: () => { },
+                        onPress: () => router.navigate(`/target/${params.id}`),
                     }}
                 />
 
-                <Progress data={details} />
+                <Progress data={details} id={params.id} />
             </View>
 
-            <View style={{ width: '100%', maxWidth: 420, alignSelf: 'center' }}>
-                <Button
-                    title="Nova transação"
-                    onPress={() => router.navigate(`/transaction/${params.id}`)}
-                />
-            </View>
+            
         </View>
     );
 }

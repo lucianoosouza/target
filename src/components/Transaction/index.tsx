@@ -1,22 +1,24 @@
 import { Text, TouchableOpacity, View } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
-
 import { colors } from '@/theme'
 import { TransactionTypes } from '@/utils/transaction-types'
 import { styles } from './styles'
 
-export type TransactionProps = {
-    id: string
-    value: string
-    date: string
-    description?: string
-    type: TransactionTypes
-}
+export type TransactionProps =
+    {
+        id: string
+        value: string
+        date: string
+        description?: string
+        type: TransactionTypes
+    }
 
-type Props = {
-    data: TransactionProps
-    onRemove: () => void
-}
+type Props =
+    
+{
+        data: TransactionProps
+        onRemove: () => void
+    }
 
 export function Transaction({ data, onRemove }: Props) {
     return (

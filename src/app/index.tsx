@@ -6,41 +6,38 @@ import { List } from "@/components/List";
 import { Button } from "@/components/Button";
 import { router } from "expo-router";
 import { targets, type TargetItem } from "../utils/targets";
+
 const summary =
-{
-  total: 'R$ 8.467,89',
-  input:
   {
-    label: 'Entradas',
-    value: 'R$ 15.542,67',
-    icon:
+    total: 'R$ 8.467,89',
+    input:
     {
-      name: 'arrow-upward',
-      color: colors.green[500],
+      label: 'Entradas',
+      value: 'R$ 15.542,67',
+      icon:
+      {
+        name: 'arrow-upward',
+        color: colors.green[500],
+      },
     },
-  },
-  output:
-  {
-    label: 'Saídas',
-    value: 'R$ 7.074,78',
-    isLeft: true,
-    icon: {
-      name: 'arrow-downward',
-      color: colors.red[400],
+    output:
+    {
+      label: 'Saídas',
+      value: 'R$ 7.074,78',
+      isRight: true,
+      icon: {
+        name: 'arrow-downward',
+        color: colors.red[400],
+      },
     },
-  },
-} as const;
+  } as const;
 
 export default function Home() {
   return (
 
-    <View
-      style={{ flex: 1 }}>
-      <StatusBar
-        barStyle="light-content" />
-      <HomeHeader
-        data={summary} />
-
+    <View style={{ flex: 1 }}>
+      <StatusBar barStyle="light-content" />
+      <HomeHeader data={summary} />
       <List
         title="Metas"
         data={targets}
@@ -54,8 +51,7 @@ export default function Home() {
           />}
       />
 
-      <View
-        style={{ padding: 24, paddingBottom: 32 }} />
+      <View style={{ padding: 24, paddingBottom: 32 }} />
 
       <Button
         title="Nova Meta"

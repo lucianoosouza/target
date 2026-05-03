@@ -4,25 +4,29 @@ import { colors, fontFamily } from '@/theme'
 
 export const styles = StyleSheet.create(
     {
-        container: {
-            minHeight: 72,
+        container:
+        {
+            paddingVertical: 16,
             flexDirection: 'row',
             alignItems: 'center',
-            gap: 10,
-            paddingVertical: 8,
+            gap: 7,
         },
-        info: {
+        info:
+        {
             flex: 1,
             gap: 4,
         },
-        value: {
+        value:
+        {
             fontSize: 16,
             fontFamily: fontFamily.medium,
             color: colors.black,
         },
-        description: {
+        description:
+        {
             fontSize: 13,
             fontFamily: fontFamily.regular,
             color: colors.gray[500],
         },
-    })
+    }
+)

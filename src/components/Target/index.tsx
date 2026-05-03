@@ -2,15 +2,17 @@ import { Text, TouchableOpacity, TouchableOpacityProps, View } from "react-nativ
 import { MaterialIcons } from '@expo/vector-icons'
 import { styles } from './styles'
 
-export type TargetProps = {
-    id?: string;
-    name: string;
-    percentage: string;
-    current: string;
-    target: string;
-}
+export type TargetProps =
+    {
+        id?: string;
+        name: string;
+        percentage: string;
+        current: string;
+        target: string;
+    }
 
-type Props = TouchableOpacityProps & {
+type Props = TouchableOpacityProps &
+{
     data: TargetProps;
 }
 

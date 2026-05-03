@@ -5,28 +5,27 @@ export const styles = StyleSheet.create(
     {
         container:
         {
+            height: 42,
             width: '100%',
-            paddingTop: 32,
-        },
-        header:
-        {
             flexDirection: 'row',
-            justifyContent: 'space-between',
+            backgroundColor: colors.gray[100],
+            borderRadius: 8,
+            overflow: 'hidden',
+        },
+        option:
+        {
+            flex: 1,
             alignItems: 'center',
-            marginBottom: 32,
+            justifyContent: 'center',
+            flexDirection: 'row',
+            borderRadius: 8,
+            gap: 7,
         },
         title:
         {
-            fontSize: 24,
-            color: colors.black,
-            fontFamily: fontFamily.bold,
-            marginBottom: 7,
-        },
-        subtitle:
-        {
+            fontFamily: fontFamily.medium,
             fontSize: 14,
             color: colors.gray[500],
-            fontFamily: fontFamily.regular,
-        },
+        }
     }
 )

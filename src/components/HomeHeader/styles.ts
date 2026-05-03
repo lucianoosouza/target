@@ -3,7 +3,8 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create(
     {
-        container: {
+        container:
+        {
             width: '100%',
             height: 324,
             justifyContent: 'flex-end',
@@ -12,17 +13,20 @@ export const styles = StyleSheet.create(
             gap: 24,
         },
 
-        label: {
+        label:
+        {
             color: colors.white,
             fontSize: 12,
             fontFamily: 'fontFamily.regular',
         },
-        total: {
+        total:
+        {
             fontSize: 32,
             color: colors.white,
             fontFamily: fontFamily.medium,
         },
-        summary: {  
+        summary:
+        {
             flexDirection: 'row',
             gap: 12,
             justifyContent: 'space-between',
