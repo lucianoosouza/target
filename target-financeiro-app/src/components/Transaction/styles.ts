@@ -22,4 +22,11 @@ export const styles = StyleSheet.create({
     fontFamily: fontFamily.regular,
     color: colors.gray[500],
   },
+  iconContainer: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 })

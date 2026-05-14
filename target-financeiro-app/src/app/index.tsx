@@ -1,56 +1,91 @@
+import { useCallback, useState } from 'react'
+import { StatusBar, View } from 'react-native'
+import { router, useFocusEffect } from 'expo-router'
+
 import { Button } from '@/components/Button'
 import { HomeHeader } from '@/components/HomeHeader'
 import { List } from '@/components/List'
 import { Target } from '@/components/Target'
-import { router } from 'expo-router'
-import { StatusBar, View } from 'react-native'
+import { TargetDatabase, useTargetDatabase } from '@/database/useTargetDatabase'
 
-const summary = {
-  total: 'R$ 2.680,00',
-  input: { label: 'Entradas', value: 'R$ 6.184,90' },
-  output: { label: 'Saídas', value: '-R$ 883,65' },
+const brl = new Intl.NumberFormat('pt-BR', {
+  style: 'currency',
+  currency: 'BRL',
+})
+
+function calculatePercentage(current: number, target: number) {
+  if (target <= 0) {
+    return 0
+  }
+
+  return Math.min((current / target) * 100, 100)
 }
 
-const targets = [
-  {
-    id: '1',
-    name: 'Apple Watch',
-    percentage: '50%',
-    current: 'R$ 580,00',
-    target: 'R$ 1.790,00',
-  },
-  {
-    id: '2',
-    name: 'Comprar uma cadeira ergonômica',
-    percentage: '75%',
-    current: 'R$ 900,00',
-    target: 'R$ 1.200,00',
-  },
-  {
-    id: '3',
-    name: 'Comprar uma cadeira ergonômica',
-    percentage: '75%',
-    current: 'R$ 1.200,00',
-    target: 'R$ 3.000,00',
-  },
-]
-
 export default function Index() {
+  const [targets, setTargets] = useState<TargetDatabase[]>([])
+  const [summary, setSummary] = useState({
+    total: brl.format(0),
+    input: { label: 'Entradas', value: brl.format(0) },
+    output: { label: 'Saídas', value: brl.format(0) },
+  })
+
+  const targetDatabase = useTargetDatabase()
+
+  async function fetchData() {
+    try {
+      const targetsResponse = await targetDatabase.findAll()
+      const summaryResponse = await targetDatabase.getSummary()
+
+      setTargets(targetsResponse)
+
+      setSummary({
+        total: brl.format(summaryResponse.total),
+        input: {
+          label: 'Entradas',
+          value: brl.format(summaryResponse.input),
+        },
+        output: {
+          label: 'Saídas',
+          value: brl.format(summaryResponse.output),
+        },
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useFocusEffect(
+    useCallback(() => {
+      fetchData()
+    }, [])
+  )
+
   return (
     <View style={{ flex: 1 }}>
       <StatusBar barStyle="light-content" />
+
       <HomeHeader data={summary} />
 
       <List
         title="Metas"
         data={targets}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <Target
-            data={item}
-            onPress={() => router.navigate(`/in-progress/${item.id}`)}
-          />
-        )}
+        keyExtractor={(item) => String(item.id)}
+        renderItem={({ item }) => {
+          const percentage = calculatePercentage(item.accumulated, item.amount)
+
+          return (
+            <Target
+              data={{
+                id: String(item.id),
+                name: item.name,
+                percentage: `${percentage.toFixed(0)}%`,
+                current: brl.format(item.accumulated),
+                target: brl.format(item.amount),
+              }}
+              onPress={() => router.navigate(`/in-progress/${item.id}`)}
+            />
+          )
+        }}
         emptyMessage="Nenhuma meta. Toque em nova meta para criar."
         containerStyle={{ paddingHorizontal: 24 }}
       />
